@@ -171,21 +171,28 @@ void CFastica::runICA(cv::Mat input, cv::Mat &output,cv::Mat &W,int snum)     //
   }        
 
 
-cv::Mat CFastica::runFastica(cv::Mat& m1)
+void CFastica::runFastica(cv::Mat& m1)
 {   
    //
    remean(m1,m1);
    
-    whiten(m1,m1,E,D);
+   whiten(m1,m1,E,D);
    
    runICA(m1,S,W,m1.cols);
-   
-   cout<<W<<endl;
-   cout<<S<<endl;
 
-   return W;
+
    
 }
 
+cv::Mat CFastica::GetW()
+{
+    return W;
+}
+
+
+cv::Mat CFastica::GetS()
+{
+    return S;
+}
 
 

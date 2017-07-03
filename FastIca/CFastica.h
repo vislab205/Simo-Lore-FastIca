@@ -25,7 +25,10 @@ public:
     CFastica(const CFastica& orig);
     virtual ~CFastica();
     
-    cv::Mat runFastica(cv::Mat &m);
+    void runFastica(cv::Mat &m);
+    
+    cv::Mat GetW();
+    cv::Mat GetS();
     
 private:
     
